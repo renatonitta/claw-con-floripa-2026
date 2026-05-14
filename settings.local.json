@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -m http.server 8000)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(pkill -f \"http.server 8000\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code} on /\\\\nHTTP %{http_code} \" http://localhost:8000/)",
+      "Bash(curl -s -o /dev/null -w \"on /assets/opening_image.jpeg\\\\n\" http://localhost:8000/assets/opening_image.jpeg)",
+      "Bash(curl -s -o /dev/null -w \"index.html: HTTP %{http_code}\\\\n\" http://localhost:8000/)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' http://localhost:8000/assets/__TRACKED_VAR__)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:8000/)",
+      "Bash(curl *)",
+      "Bash(git *)",
+      "Bash(python3 -c \"import pptx\")",
+      "Bash(pip3 install *)",
+      "Bash(python3 *)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --no-sandbox --hide-scrollbars --virtual-time-budget=15000 --run-all-compositor-stages-before-draw --print-to-pdf=/tmp/claw-deck.pdf --print-to-pdf-no-header \"http://localhost:8765/index.html?print-pdf\")",
+      "Read(//private/tmp/**)",
+      "Bash(magick identify *)",
+      "Bash(mkdir -p /Users/renatonitta/projects/my_bets/presentations/claw-con-sp-2026/screenshots)",
+      "Bash(magick -density 200 /tmp/claw-deck.pdf -quality 95 /Users/renatonitta/projects/my_bets/presentations/claw-con-sp-2026/screenshots/slide-%02d.png)",
+      "Bash(kill %1)",
+      "Bash(wait)"
+    ]
+  }
+}

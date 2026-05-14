@@ -1,0 +1,1093 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claw Con Floripa 2026 — Renato Nitta</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+  <style>
+    :root {
+      --bg: #f7f1e3;
+      --ink: #13213c;
+      --ink-soft: #1f2d48;
+      --muted: #6a748a;
+      --accent: #ff5a2b;
+      --accent-red: #e83a1f;
+      --accent-soft: #ffd8c9;
+      --accent-2: #1f6feb;
+      --yellow: #ffe66d;
+      --panel: rgba(255, 250, 240, 0.88);
+      --shadow: 0 28px 70px rgba(19, 33, 60, 0.18);
+      --radius: 28px;
+    }
+
+    html, body {
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255, 90, 43, 0.22), transparent 30%),
+        radial-gradient(circle at 92% 8%, rgba(31, 111, 235, 0.18), transparent 28%),
+        radial-gradient(circle at 95% 100%, rgba(232, 58, 31, 0.14), transparent 32%),
+        linear-gradient(180deg, #fffaf1 0%, #f7f1e3 52%, #efe6d2 100%);
+      color: var(--ink);
+    }
+
+    .reveal {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      color: var(--ink);
+      font-size: 36px;
+    }
+
+    .reveal .slides { text-align: left; }
+
+    .reveal h1, .reveal h2, .reveal h3 {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      color: var(--ink);
+      text-transform: none;
+      letter-spacing: -0.04em;
+      line-height: 0.98;
+      margin: 0;
+    }
+
+    .reveal h1 { font-size: 2.6em; font-weight: 700; }
+    .reveal h2 { font-size: 1.5em; font-weight: 700; }
+    .reveal h3 { font-size: 1.25em; font-weight: 700; }
+
+    .reveal p, .reveal li { color: var(--ink-soft); line-height: 1.32; }
+
+    .reveal strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .reveal .accent { color: var(--accent); }
+    .reveal .accent-red { color: var(--accent-red); }
+    .reveal .accent-blue { color: var(--accent-2); }
+    .reveal .muted { color: var(--muted); }
+
+    .reveal a { color: inherit; }
+    .reveal .controls { color: var(--accent); }
+    .reveal .progress { color: var(--accent); height: 5px; }
+
+    .reveal section {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+    }
+
+    /* ---------- Frame (card atrás do slide) ---------- */
+    .frame {
+      position: relative;
+      min-height: 700px;
+      padding: 56px;
+      border-radius: 36px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255, 250, 240, 0.94), rgba(247, 241, 227, 0.88)),
+        repeating-linear-gradient(
+          -45deg,
+          rgba(19, 33, 60, 0.02) 0,
+          rgba(19, 33, 60, 0.02) 12px,
+          transparent 12px,
+          transparent 24px
+        );
+      border: 1px solid rgba(19, 33, 60, 0.09);
+      box-shadow: var(--shadow);
+    }
+
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      pointer-events: none;
+    }
+
+    .frame::before {
+      width: 260px; height: 260px;
+      top: -110px; right: -70px;
+      background: radial-gradient(circle, rgba(255, 90, 43, 0.26), transparent 68%);
+    }
+
+    .frame::after {
+      width: 320px; height: 320px;
+      left: -130px; bottom: -150px;
+      background: radial-gradient(circle, rgba(31, 111, 235, 0.18), transparent 68%);
+    }
+
+    /* ---------- Layouts ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
+      gap: 38px;
+      align-items: center;
+      min-height: 588px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid.compact { grid-template-columns: minmax(0, 0.85fr) minmax(360px, 1.15fr); }
+    .grid.flip    { grid-template-columns: minmax(320px, 1fr) minmax(0, 1fr); }
+
+    .single {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 588px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      min-height: 588px;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ---------- Typography utilities ---------- */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 90, 43, 0.12);
+      color: var(--accent);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.42em;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .eyebrow.blue {
+      background: rgba(31, 111, 235, 0.10);
+      color: var(--accent-2);
+    }
+
+    .copy p {
+      max-width: 11em;
+      margin-top: 22px;
+      font-size: 0.82em;
+      color: var(--muted);
+    }
+
+    .copy p.lead {
+      font-size: 0.92em;
+      color: var(--ink-soft);
+    }
+
+    .hero-title {
+      max-width: 9em;
+      font-size: 2.6em;
+    }
+
+    .strike {
+      text-decoration: line-through;
+      text-decoration-thickness: 4px;
+      text-decoration-color: var(--accent-red);
+      color: var(--muted);
+    }
+
+    .hero-meta {
+      margin-top: 36px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.55em;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .hero-meta strong { color: var(--accent-2); }
+
+    .footer-note {
+      margin-top: 22px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.48em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.56);
+    }
+
+    /* ---------- Photo / visual cards ---------- */
+    .photo-card,
+    .visual-card {
+      position: relative;
+      padding: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      border-radius: var(--radius);
+      border: 1px solid rgba(19, 33, 60, 0.08);
+      box-shadow: 0 22px 52px rgba(19, 33, 60, 0.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .photo-card img,
+    .visual-card img {
+      display: block;
+      width: 100%;
+      max-height: 460px;
+      object-fit: contain;
+      margin: 0 auto;
+      border-radius: 22px;
+      border: none;
+      box-shadow: none;
+      background: transparent;
+    }
+
+    .photo-card.tall img { max-height: 520px; }
+
+    /* Two-image side-by-side duo for the RAM slide. */
+    .ram-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ram-duo .photo-card { padding: 12px; }
+
+    .ram-duo .photo-card img {
+      max-height: 360px;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .ram-duo .photo-card:first-child {
+      transform: rotate(-2deg);
+    }
+
+    .ram-duo .photo-card:last-child {
+      transform: rotate(2deg);
+    }
+
+    .visual-card.wide {
+      padding: 22px;
+    }
+
+    .visual-card.wide img {
+      max-height: 520px;
+      width: 100%;
+    }
+
+    /* full-width image slide (for wide screenshots) */
+    .hero-image-block {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-image-block img {
+      display: block;
+      width: 100%;
+      max-height: 440px;
+      object-fit: contain;
+      border-radius: var(--radius);
+      border: 1px solid rgba(19, 33, 60, 0.08);
+      box-shadow: 0 22px 52px rgba(19, 33, 60, 0.14);
+      background: #fff;
+      padding: 18px;
+    }
+
+    /* ---------- Polaroid stack (Omarchy) ---------- */
+    .polaroid-stack {
+      position: relative;
+      height: 490px;
+    }
+
+    .polaroid {
+      position: absolute;
+      width: 46%;
+      padding: 14px 14px 52px;
+      background: #fffdf8;
+      border-radius: 18px;
+      box-shadow: 0 24px 52px rgba(19, 33, 60, 0.18);
+      border: 1px solid rgba(19, 33, 60, 0.08);
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: none;
+      box-shadow: none;
+    }
+
+    .polaroid::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 20px;
+      bottom: 16px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .polaroid.one { left: 4%;  top: 20px;  transform: rotate(-6deg); }
+    .polaroid.two { right: 2%; top: 90px;  transform: rotate(7deg); z-index: 2; }
+
+    /* ---------- Main session callout ---------- */
+    .main-session {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 28px;
+      padding: 18px 26px;
+      border-radius: 18px;
+      background: rgba(255, 90, 43, 0.10);
+      border: 1px solid rgba(255, 90, 43, 0.25);
+    }
+
+    .main-session .label {
+      font-size: 0.7em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+    }
+
+    .main-session .model {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.6em;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---------- Cron table ---------- */
+    .cron-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 28px;
+      table-layout: fixed;
+    }
+
+    .cron-table col.name-col { width: 58%; }
+    .cron-table col.model-col { width: 42%; }
+
+    .cron-table th {
+      text-align: left;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.38em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 14px 18px;
+      border-bottom: 2px solid rgba(19, 33, 60, 0.14);
+    }
+
+    .cron-table td {
+      font-size: 0.5em;
+      padding: 10px 18px;
+      border-bottom: 1px solid rgba(19, 33, 60, 0.06);
+      vertical-align: middle;
+      line-height: 1.3;
+      color: var(--ink);
+    }
+
+    .cron-table tr:last-child td { border-bottom: none; }
+
+    .cron-table tr:nth-child(even) td {
+      background: rgba(19, 33, 60, 0.025);
+    }
+
+    .cron-table .model {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78em;
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .cron-table .muted-row td:first-child { color: var(--muted); }
+    .cron-table .muted-row .model { color: rgba(106, 116, 138, 0.7); font-style: italic; }
+
+    .cron-table .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.7em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .cron-table .badge.yes {
+      background: rgba(0, 158, 96, 0.18);
+      color: #007a4a;
+    }
+
+    .cron-table .badge.no {
+      background: rgba(19, 33, 60, 0.06);
+      color: var(--muted);
+    }
+
+    /* ---------- Compare split (Subscription vs API) ---------- */
+    .compare-split {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      min-height: 588px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .compare-row {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      padding: 32px 0;
+    }
+
+    .compare-row + .compare-row {
+      border-top: 2px dashed rgba(19, 33, 60, 0.18);
+    }
+
+    .compare-row .compare-label {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.5em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      align-self: flex-start;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(19, 33, 60, 0.06);
+    }
+
+    .compare-row.top .compare-label {
+      background: rgba(255, 90, 43, 0.12);
+      color: var(--accent);
+    }
+
+    .compare-row.bottom .compare-label {
+      background: rgba(31, 111, 235, 0.10);
+      color: var(--accent-2);
+    }
+
+    .compare-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 80px;
+    }
+
+    .compare-logos .logo-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 160px;
+      padding: 22px 32px;
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid rgba(19, 33, 60, 0.10);
+      box-shadow: 0 18px 40px rgba(19, 33, 60, 0.10);
+    }
+
+    .compare-logos .logo-card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 900px) {
+      .compare-logos { gap: 24px; }
+      .compare-logos .logo-card { width: 160px; height: 100px; padding: 14px; }
+    }
+
+    /* ---------- Logo trio (Linux → Ubuntu) ---------- */
+    .logo-trio {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      min-height: 360px;
+    }
+
+    .logo-trio .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 200px;
+      padding: 22px;
+      background: #fff;
+      border-radius: 32px;
+      border: 1px solid rgba(19, 33, 60, 0.10);
+      box-shadow: 0 22px 50px rgba(19, 33, 60, 0.14);
+    }
+
+    .logo-trio .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-trio .arrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.9em;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    /* ---------- Sticky note ---------- */
+    .sticky {
+      position: absolute;
+      padding: 14px 18px;
+      max-width: 200px;
+      background: var(--yellow);
+      color: #4a3d00;
+      border-radius: 18px 18px 6px 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 600;
+      transform: rotate(-4deg);
+      box-shadow: 0 14px 30px rgba(74, 61, 0, 0.22);
+      z-index: 4;
+    }
+
+    .sticky.top-right { top: 28px; right: 28px; transform: rotate(4deg); }
+    .sticky.bottom-right { right: 36px; bottom: 36px; }
+
+    .sticky .big {
+      display: block;
+      font-size: 22px;
+      font-weight: 700;
+      color: #3b2a00;
+    }
+
+    /* ---------- Chips (contas) ---------- */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 34px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 28px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(19, 33, 60, 0.10);
+      box-shadow: 0 16px 36px rgba(19, 33, 60, 0.10);
+      font-weight: 700;
+      font-size: 0.85em;
+      min-width: 150px;
+      justify-content: center;
+    }
+
+    .chip:nth-child(1) { background: rgba(255, 90, 43, 0.11); color: var(--accent); }
+    .chip:nth-child(2) { background: rgba(19, 33, 60, 0.06); color: var(--ink); }
+    .chip:nth-child(3) { background: rgba(31, 111, 235, 0.10); color: var(--accent-2); }
+
+    /* ---------- Spec cards (system requirements) ---------- */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 42px;
+    }
+
+    .spec-card {
+      padding: 44px 40px 46px;
+      background: #fff;
+      border-radius: 26px;
+      border: 1px solid rgba(19, 33, 60, 0.10);
+      box-shadow: 0 22px 50px rgba(19, 33, 60, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .spec-card .spec-tag {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.5em;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .spec-card .spec-headline {
+      font-size: 1.5em;
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+    }
+
+    .spec-card .spec-note {
+      font-size: 0.7em;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    .spec-card.node    { background: rgba(255, 90, 43, 0.08); border-color: rgba(255, 90, 43, 0.22); }
+    .spec-card.node    .spec-headline { color: var(--accent); }
+    .spec-card.os      { background: rgba(31, 111, 235, 0.07); border-color: rgba(31, 111, 235, 0.22); }
+    .spec-card.os      .spec-headline { color: var(--accent-2); }
+
+    @media (max-width: 900px) {
+      .spec-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ---------- Poster (Demo + Thanks) ---------- */
+    .poster {
+      display: grid;
+      place-items: center;
+      min-height: 588px;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .poster-card {
+      width: min(100%, 780px);
+      padding: 72px 52px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, #13213c, #20355e);
+      color: #fff;
+      box-shadow: 0 36px 80px rgba(19, 33, 60, 0.32);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster-card::before,
+    .poster-card::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .poster-card::before {
+      inset: auto auto -90px -90px;
+      width: 240px; height: 240px;
+      background: rgba(255, 90, 43, 0.28);
+    }
+
+    .poster-card::after {
+      inset: -100px -90px auto auto;
+      width: 260px; height: 260px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .poster-card h1, .poster-card h2 { color: #fff; }
+    .poster-card p { color: rgba(255, 255, 255, 0.78); }
+
+    .demo-word {
+      font-size: 4em;
+      letter-spacing: -0.05em;
+      font-weight: 700;
+    }
+
+    .thanks-name {
+      margin-top: 24px;
+      font-size: 1em;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .thanks-handle {
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.78);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.6em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ---------- Responsive (not critical for projector, but safe) ---------- */
+    @media (max-width: 900px) {
+      .frame { min-height: auto; padding: 30px; }
+      .grid, .grid.compact, .grid.flip { grid-template-columns: 1fr; gap: 24px; min-height: auto; }
+      .single, .poster, .stack { min-height: auto; }
+      .hero-title { font-size: 1.8em; }
+      .polaroid-stack { height: 620px; }
+      .polaroid { width: 72%; }
+      .polaroid.one { left: 2%; top: 20px; }
+      .polaroid.two { right: 2%; top: 220px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- 1. TITLE -->
+      <section>
+        <div class="frame">
+          <div class="single">
+            <div class="eyebrow">Claw-con Floripa · 2026</div>
+            <h2 class="hero-title">
+              Você não precisa de <span class="strike">Mac mini</span><br>
+              para ter seu <span class="accent">OpenClaw</span>
+            </h2>
+            <div class="hero-meta">
+              por <strong>@renatonitta</strong>
+            </div>
+          </div>
+          <aside class="notes">
+            Você não precisa de Mac mini nem gastar muito para ter seu OpenClaw.
+            Eu sou o Renato, @renatonitta no X. Em 5 minutos conto como montei o meu.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 2. MAC MINI HYPE -->
+      <section>
+        <div class="frame">
+          <div class="grid">
+            <div class="copy">
+              <div class="eyebrow">O hype</div>
+              <h2>Todo mundo instalando <span class="accent">OpenClaw</span> no Mac Mini 🤔</h2>
+            </div>
+            <div class="photo-card tall">
+              <img src="assets/macmini.jpg" alt="Mac Mini">
+            </div>
+          </div>
+          <aside class="notes">
+            Comecei a ver esse tal de OpenClaw no X — todo mundo instalando em Mac Mini novinho.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 3. SYSTEM REQUIREMENTS -->
+      <section>
+        <div class="frame">
+          <div class="single">
+            <div class="eyebrow">Requisitos</div>
+            <h2>Roda em <span class="accent">qualquer máquina</span></h2>
+            <div class="spec-grid">
+              <div class="spec-card node">
+                <div class="spec-tag">Runtime</div>
+                <div class="spec-headline">Node 24+</div>
+                <div class="spec-note">o instalador resolve sozinho</div>
+              </div>
+              <div class="spec-card os">
+                <div class="spec-tag">Sistema</div>
+                <div class="spec-headline">macOS · Linux · Windows</div>
+                <div class="spec-note">no Windows, WSL2 é mais estável</div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Os requisitos são bem simples: Node 24, que o instalador cuida sozinho, e qualquer sistema operacional — macOS, Linux ou Windows com WSL2. Ou seja: roda em quase qualquer notebook.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 4. OLD LAPTOP -->
+      <section>
+        <div class="frame">
+          <div class="grid compact">
+            <div class="copy">
+              <div class="eyebrow">Usa o que tem</div>
+              <h3>Notebook antigo</h3>
+              <p class="lead">minha filha usou para <strong>estudar</strong> ou <strong>fingir que estudava</strong> 😴 durante a pandemia</p>
+            </div>
+            <div class="photo-card tall">
+              <img src="assets/laptop_to_study_during_pandemics.jpg" alt="Filha estudando na pandemia">
+            </div>
+          </div>
+          <aside class="notes">
+            Eu só tinha um notebook antigo que minha filha usou pra estudar — ou fingir que estudava — durante a pandemia.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 5. RAM UPGRADE -->
+      <section>
+        <div class="frame">
+          <div class="grid compact">
+            <div class="copy">
+              <div class="eyebrow">Upgrade RAM</div>
+              <h3>4GB + 4GB = <strong>8GB</strong></h3>
+            </div>
+            <div class="ram-duo">
+              <div class="photo-card ram-photo">
+                <img src="assets/memory_stick.jpeg" alt="Pente de memória">
+              </div>
+              <div class="photo-card ram-photo">
+                <img src="assets/memory_upgrade.jpeg" alt="Upgrade de memória">
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Tinha só 4 GB de RAM — e funcionou. Depois comprei mais 4 GB, ficou 8 GB.
+            Custo? Menos que um almoço.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 6. LINUX → UBUNTU -->
+      <section>
+        <div class="frame">
+          <div class="single">
+            <div class="eyebrow">Setup</div>
+            <h2><span class="accent">Linux</span> &mdash; <span class="accent-blue">Ubuntu</span></h2>
+            <div class="logo-trio">
+              <div class="logo"><img src="assets/tux.svg" alt="Tux, o pinguim do Linux"></div>
+              <div class="logo"><img src="assets/ubuntu.png" alt="Ubuntu"></div>
+            </div>
+          </div>
+          <aside class="notes">
+            Instalei Linux — Ubuntu. Distro estável, sem firula, e roda numa máquina velha sem reclamar.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 7. COWORKING -->
+      <section>
+        <div class="frame">
+          <div class="grid">
+            <div class="copy">
+              <div class="eyebrow">Onde ele mora</div>
+              <h3>Fica <strong>fechado</strong> na minha mesa do <span class="accent">Coworking</span></h3>
+            </div>
+            <div class="photo-card">
+              <img src="assets/coworking.jpeg" alt="Coworking">
+            </div>
+          </div>
+          <aside class="notes">
+            Hoje ele mora fechado na minha mesa do coworking. Ligado o tempo todo.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 8. REMOTE ACCESS (wide screenshot → full-width below) -->
+      <section>
+        <div class="frame">
+          <div class="stack">
+            <div class="copy">
+              <div class="eyebrow blue">Acesso remoto</div>
+              <h3>Acesso via <span class="accent">RDP</span> com <span class="accent-blue">Tailscale</span></h3>
+            </div>
+            <div class="hero-image-block">
+              <img src="assets/remote_access.png" alt="Acesso remoto">
+            </div>
+          </div>
+          <aside class="notes">
+            Quando preciso, acesso via RDP por cima do Tailscale. Simples e seguro.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 9. TELEGRAM (wide screenshot → full-width below) -->
+      <section>
+        <div class="frame">
+          <div class="stack">
+            <div class="copy">
+              <div class="eyebrow blue">Uso diário</div>
+              <h3>Telegram</h3>
+            </div>
+            <div class="hero-image-block">
+              <img src="assets/telegram.png" alt="Notificação no Telegram">
+            </div>
+          </div>
+          <aside class="notes">
+            Quando precisa de algo ou termina uma tarefa, ele me chama no Telegram.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 10. OWN ACCOUNTS -->
+      <section>
+        <div class="frame">
+          <div class="single">
+            <div class="eyebrow">Autonomia</div>
+            <h2>Ele tem suas <span class="accent">próprias contas</span></h2>
+            <div class="chips">
+              <div class="chip">Email</div>
+              <div class="chip">GitHub</div>
+              <div class="chip">X</div>
+            </div>
+          </div>
+          <aside class="notes">
+            Ele tem as próprias contas: email, GitHub e X. Vida digital separada da minha.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 11. SHARE FILES -->
+      <section>
+        <div class="frame">
+          <div class="grid">
+            <div class="copy">
+              <div class="eyebrow">Workflow</div>
+              <h3>Compartilhamos arquivos pelo <span class="accent">GitHub</span></h3>
+            </div>
+            <div class="photo-card">
+              <img src="assets/share_files_github.jpeg" alt="Compartilhando arquivos via GitHub">
+            </div>
+          </div>
+          <aside class="notes">
+            A gente compartilha arquivos pelo GitHub. É simples e auditável.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 12. COST (wide screenshot → full-width below) -->
+      <section>
+        <div class="frame">
+          <div class="stack">
+            <div class="copy">
+              <div class="eyebrow">Custo</div>
+              <h3>Em uma semana <span class="accent">$184.86</span> de token (API)</h3>
+            </div>
+            <div class="hero-image-block">
+              <img src="assets/cost_table.png" alt="Tabela de custos da API">
+            </div>
+          </div>
+          <aside class="notes">
+            Numa semana de uso intenso, $184,86 em créditos da API. Praticamente o preço da máquina por mês — mas o trabalho que entrega vale muito mais.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 13. DIARY (wide screenshot → full-width below) -->
+      <section>
+        <div class="frame">
+          <div class="stack">
+            <div class="copy">
+              <div class="eyebrow">Registro</div>
+              <h3><span class="accent">Diário</span> relatando tudo que fez no dia</h3>
+            </div>
+            <div class="hero-image-block">
+              <img src="assets/github_journal.png" alt="Diário no GitHub">
+            </div>
+          </div>
+          <aside class="notes">
+            Todo dia ele atualiza um arquivo markdown com tudo que fez. Transparência total.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 14. SUBSCRIPTION vs API -->
+      <section>
+        <div class="frame">
+          <div class="compare-split">
+            <div class="compare-row top">
+              <div class="compare-label">Assinatura</div>
+              <div class="compare-logos">
+                <div class="logo-card"><img src="assets/claude_logo_sub.png" alt="Claude (assinatura)"></div>
+                <div class="logo-card"><img src="assets/gpt-logo.png" alt="ChatGPT"></div>
+              </div>
+            </div>
+            <div class="compare-row bottom">
+              <div class="compare-label">API (fallback)</div>
+              <div class="compare-logos">
+                <div class="logo-card"><img src="assets/claude_logo.png" alt="Claude API"></div>
+                <div class="logo-card"><img src="assets/gpt-logo.png" alt="OpenAI API"></div>
+              </div>
+            </div>
+          </div>
+          <aside class="notes">
+            Em cima, as assinaturas. Embaixo, as APIs. Mesmos modelos, jeitos diferentes de pagar.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 15. CRONS -->
+      <section>
+        <div class="frame">
+          <div class="single">
+            <div class="eyebrow">Otimização</div>
+            <div class="main-session">
+              <span class="label">Sessão principal</span>
+              <span class="model">gpt-5.5-codex</span>
+            </div>
+            <table class="cron-table">
+              <colgroup>
+                <col class="name-col">
+                <col class="model-col">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Cron</th>
+                  <th>Modelo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Email + GitHub check <span class="muted">(2x dia)</span></td>
+                  <td class="model">gpt-5.4-mini</td>
+                </tr>
+                <tr>
+                  <td>X read-only digest <span class="muted">(4h)</span></td>
+                  <td class="model">gpt-5.4-mini</td>
+                </tr>
+                <tr>
+                  <td>Nikki diário</td>
+                  <td class="model">gpt-5.3-codex</td>
+                </tr>
+                <tr>
+                  <td>Recovery kit refresh <span class="muted">(diário)</span></td>
+                  <td class="model">gpt-5.4-mini</td>
+                </tr>
+                <tr>
+                  <td>X follower diff <span class="muted">(diário)</span></td>
+                  <td class="model">gpt-5.3-codex</td>
+                </tr>
+                <tr>
+                  <td>X notifications <span class="muted">(2x dia)</span></td>
+                  <td class="model">gpt-5.4-mini</td>
+                </tr>
+                <tr>
+                  <td>Browser tab cleanup <span class="muted">(4h)</span></td>
+                  <td class="model">gpt-5.4-mini</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <aside class="notes">
+            Esses são os crons que ele roda — cada um com seu modelo. Nem todos ativos: alguns ficam pausados enquanto eu refino.
+          </aside>
+        </div>
+      </section>
+
+      <!-- 16. THANKS -->
+      <section>
+        <div class="frame">
+          <div class="poster">
+            <div class="poster-card">
+              <h2>Obrigado!</h2>
+              <div class="thanks-name">Renato Nitta</div>
+              <div class="thanks-handle">X · @renatonitta</div>
+              <div class="footer-note">Claw-con Floripa · 2026</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script>
+    Reveal.initialize({
+      hash: true,
+      controls: true,
+      progress: true,
+      slideNumber: "c/t",
+      transition: "slide",
+      backgroundTransition: "fade",
+      plugins: [RevealNotes]
+    });
+  </script>
+</body>
+</html>
