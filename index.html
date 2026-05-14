@@ -11,26 +11,26 @@
 
   <style>
     :root {
-      --bg: #f7f1e3;
-      --ink: #13213c;
-      --ink-soft: #1f2d48;
-      --muted: #6a748a;
-      --accent: #ff5a2b;
-      --accent-red: #e83a1f;
-      --accent-soft: #ffd8c9;
-      --accent-2: #1f6feb;
-      --yellow: #ffe66d;
-      --panel: rgba(255, 250, 240, 0.88);
-      --shadow: 0 28px 70px rgba(19, 33, 60, 0.18);
+      --bg: #eaf7ff;
+      --ink: #0f2840;
+      --ink-soft: #19415f;
+      --muted: #5d748b;
+      --accent: #00a8a8;
+      --accent-red: #ff6b6b;
+      --accent-soft: #ccf4f4;
+      --accent-2: #2f7df6;
+      --yellow: #ffe18a;
+      --panel: rgba(241, 252, 255, 0.9);
+      --shadow: 0 28px 70px rgba(15, 40, 64, 0.2);
       --radius: 28px;
     }
 
     html, body {
       background:
-        radial-gradient(circle at 10% 0%, rgba(255, 90, 43, 0.22), transparent 30%),
-        radial-gradient(circle at 92% 8%, rgba(31, 111, 235, 0.18), transparent 28%),
-        radial-gradient(circle at 95% 100%, rgba(232, 58, 31, 0.14), transparent 32%),
-        linear-gradient(180deg, #fffaf1 0%, #f7f1e3 52%, #efe6d2 100%);
+        radial-gradient(circle at 12% 6%, rgba(0, 168, 168, 0.24), transparent 32%),
+        radial-gradient(circle at 88% 10%, rgba(47, 125, 246, 0.2), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(255, 225, 138, 0.2), transparent 35%),
+        linear-gradient(180deg, #f0fbff 0%, #dff3ff 48%, #d5ecff 100%);
       color: var(--ink);
     }
 
@@ -85,15 +85,15 @@
       border-radius: 36px;
       overflow: hidden;
       background:
-        linear-gradient(180deg, rgba(255, 250, 240, 0.94), rgba(247, 241, 227, 0.88)),
+        linear-gradient(180deg, rgba(245, 253, 255, 0.95), rgba(226, 245, 255, 0.9)),
         repeating-linear-gradient(
           -45deg,
-          rgba(19, 33, 60, 0.02) 0,
-          rgba(19, 33, 60, 0.02) 12px,
+          rgba(15, 40, 64, 0.02) 0,
+          rgba(15, 40, 64, 0.02) 12px,
           transparent 12px,
           transparent 24px
         );
-      border: 1px solid rgba(19, 33, 60, 0.09);
+      border: 1px solid rgba(15, 40, 64, 0.1);
       box-shadow: var(--shadow);
     }
 
@@ -108,13 +108,13 @@
     .frame::before {
       width: 260px; height: 260px;
       top: -110px; right: -70px;
-      background: radial-gradient(circle, rgba(255, 90, 43, 0.26), transparent 68%);
+      background: radial-gradient(circle, rgba(0, 168, 168, 0.28), transparent 68%);
     }
 
     .frame::after {
       width: 320px; height: 320px;
       left: -130px; bottom: -150px;
-      background: radial-gradient(circle, rgba(31, 111, 235, 0.18), transparent 68%);
+      background: radial-gradient(circle, rgba(47, 125, 246, 0.2), transparent 68%);
     }
 
     /* ---------- Layouts ---------- */
@@ -158,7 +158,7 @@
       margin-bottom: 22px;
       padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(255, 90, 43, 0.12);
+      background: rgba(0, 168, 168, 0.14);
       color: var(--accent);
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.42em;
